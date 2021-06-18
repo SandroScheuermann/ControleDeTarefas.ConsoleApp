@@ -10,7 +10,7 @@ namespace ControleDeTarefas.ConsoleApp.Telas
 {
     class Tela
     {
-        Controlador controlador = new Controlador();
+        ControladorBase controlador = new ControladorBase();
         public void Menu()
         {
             while (true)
@@ -80,7 +80,7 @@ namespace ControleDeTarefas.ConsoleApp.Telas
         }
         public void InserirTarefa()
         {
-            controlador = new Controlador();
+            controlador = new ControladorBase();
 
             Console.WriteLine("Digite o título da tarefa : ");
             string titulo = Console.ReadLine();
@@ -103,7 +103,7 @@ namespace ControleDeTarefas.ConsoleApp.Telas
         }
         public void EditarTarefa()
         {
-            controlador = new Controlador();
+            controlador = new ControladorBase();
 
             VisualizarTodasAsTarefas();
 
@@ -143,7 +143,7 @@ namespace ControleDeTarefas.ConsoleApp.Telas
         }
         public void ExcluirTarefa()
         {
-            controlador = new Controlador();
+            controlador = new ControladorBase();
 
             VisualizarTodasAsTarefas();
 

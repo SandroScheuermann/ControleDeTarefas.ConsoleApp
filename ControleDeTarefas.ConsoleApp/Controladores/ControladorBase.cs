@@ -8,25 +8,24 @@ using ControleDeTarefas.ConsoleApp.Domínio;
 
 namespace ControleDeTarefas.ConsoleApp.Controladores
 {
-    class Controlador
+    class ControladorBase
     {
         List<Tarefa> tarefas = new List<Tarefa>();
         internal List<Tarefa> Tarefas { get => tarefas; set => tarefas = value; }
 
-        public Controlador()
+        public ControladorBase()
         {
             tarefas = ObterTodasAsTarefas();
         }
 
         private readonly string enderecoConexaoBD =
             @"Data Source=(LocalDb)\MSSqlLocalDB;Initial Catalog=TarefasDB;Integrated Security=True;Pooling=False";
-
         public void Inserir(Tarefa tarefa)
         {
             SqlConnection conexaoComBD = new SqlConnection(enderecoConexaoBD);
             conexaoComBD.Open();
 
-            string sqlInserir = 
+            string sqlInserir =
                 @"INSERT INTO TBTAREFAS
                 (
                      [PRIORIDADE],
@@ -177,7 +176,7 @@ namespace ControleDeTarefas.ConsoleApp.Controladores
             else
                 return tarefa;
         }
-        private static List<Tarefa> OrganizarPorPrioridade(List<Tarefa> tarefas)
+        protected static List<Tarefa> OrganizarPorPrioridade(List<Tarefa> tarefas)
         {
             tarefas = tarefas.OrderBy(x => x.Prioridade == "BAIXA").ThenBy(x => x.Prioridade == "NORMAL").ThenBy(x => x.Prioridade == "ALTA").ToList();
             return tarefas;

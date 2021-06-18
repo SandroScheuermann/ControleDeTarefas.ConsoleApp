@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace ControleDeTarefas.ConsoleApp.Domínio
 {
-    class Tarefa
+    class Tarefa : EntidadeBase
     {
         private string prioridade = "", titulo = "", percentualConcluido = "";
-        private DateTime dataCriacao;
+        private DateTime dataCriacao;  
         private Nullable<DateTime> dataConclusao;
-        private int id;
         public Tarefa(string prioridade, string titulo, string percentualConcluido, DateTime dataCriacao, Nullable<DateTime> dataConclusao, int id)
         {
             this.prioridade = prioridade;
@@ -19,7 +18,7 @@ namespace ControleDeTarefas.ConsoleApp.Domínio
             this.percentualConcluido = percentualConcluido;
             this.dataCriacao = dataCriacao;
             this.dataConclusao = dataConclusao;
-            this.id = id;
+            this.Id = id;
         }
         public Tarefa(string prioridade, string titulo, string percentualConcluido)
         {
@@ -48,23 +47,19 @@ namespace ControleDeTarefas.ConsoleApp.Domínio
         {
             if(dataConclusao.HasValue) 
                 return "------------------------------------------------------\n"
-                 + "ID : " + id + "\nTÍTULO : " + titulo + "\nPRIORIDADE : "
+                 + "ID : " + Id + "\nTÍTULO : " + titulo + "\nPRIORIDADE : "
                  + prioridade + "\nPERCENTUAL CONCLUÍDO : " + percentualConcluido + "\nDATA DE CRIAÇÃO : " +
                  dataCriacao.ToString("U") + "\nDATA DE CONCLUSÃO : " + dataConclusao.Value.ToString("U");
             else
                 return "------------------------------------------------------\n"
-                 + "ID : " + id + "\nTÍTULO : " + titulo + "\nPRIORIDADE : "
+                 + "ID : " + Id + "\nTÍTULO : " + titulo + "\nPRIORIDADE : "
                  + prioridade + "\nPERCENTUAL CONCLUÍDO : " + percentualConcluido + "\nDATA DE CRIAÇÃO : " +
                  dataCriacao.ToString("U") + "\nDATA DE CONCLUSÃO : NÃO CONCLUÍDO\n";
-
-
-
         }
         public string Prioridade { get => prioridade; set => prioridade = value; }
         public string Titulo { get => titulo; set => titulo = value; }
         public string Percentualconcluido { get => percentualConcluido; set => percentualConcluido = value; }
         public DateTime DataCriacao { get => dataCriacao; set => dataCriacao = value; }
         public Nullable<DateTime> DataConclusao { get => dataConclusao; set => dataConclusao = value; }
-        public int Id { get => id; set => id = value; }
     }
 }

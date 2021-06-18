@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controladores\Controlador.cs" />
+    <Compile Include="Controladores\ControladorBase.cs" />
+    <Compile Include="Controladores\ControladorTarefa.cs" />
+    <Compile Include="Domínio\EntidadeBase.cs" />
     <Compile Include="Domínio\Tarefa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
