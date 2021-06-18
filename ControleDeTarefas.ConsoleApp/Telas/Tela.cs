@@ -37,11 +37,11 @@ namespace ControleDeTarefas.ConsoleApp.Telas
                     case "3":
                         ExcluirTarefa(); continue;
                     case "4":
-                        VisualizarTarefasAbertas(); continue;
+                        Console.Clear(); VisualizarTarefasAbertas(); continue;
                     case "5":
-                        VisualizarTarefasFechadas(); continue;
+                        Console.Clear(); VisualizarTarefasFechadas(); continue;
                     case "6":
-                        VisualizarTodasAsTarefas(); continue;
+                        Console.Clear(); VisualizarTodasAsTarefas(); continue;
                     default:
                         Console.Clear(); break;
                 }
@@ -105,9 +105,9 @@ namespace ControleDeTarefas.ConsoleApp.Telas
         {
             controlador = new Controlador();
 
-            Console.WriteLine("Digite o ID da tarefa que deseja editar : ");
-
             VisualizarTodasAsTarefas();
+
+            Console.Write("Digite o ID da tarefa que deseja editar : ");
 
             int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
